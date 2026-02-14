@@ -101,10 +101,8 @@ def get_contact():
 def get_resume():
     return """
     <b>Resume</b><br><br>
-    <a href="http://127.0.0.1:8000/static/Manoj_Kumar_Pyapli_Resume.pdf" target="_blank">
+    <a href="https://manojkumarpyapli-portfolio.onrender.com/static/Manoj_Kumar_Pyapli_Resume.pdf" target="_blank">
     Download Resume
-</a>
-
-
+    </a>
     """
 
