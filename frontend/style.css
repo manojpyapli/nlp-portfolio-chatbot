@@ -33,6 +33,7 @@ body {
     border-radius: 12px;
     max-width: 50%;
     word-wrap: break-word;
+    animation: slideIn 0.25s ease;
 }
 
 .bot-msg {
@@ -43,6 +44,7 @@ body {
     border-radius: 12px;
     max-width: 60%;
     word-wrap: break-word;
+    animation: slideIn 0.25s ease;
 }
 
 .input-container {
@@ -210,4 +212,23 @@ button {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intent-label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+    margin-left: 6px;
 }

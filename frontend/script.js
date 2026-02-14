@@ -1,4 +1,5 @@
 let chatHistory = [];
+addBotMessage("Waking up server...");
 
 async function sendMessage() {
 
@@ -20,7 +21,7 @@ async function sendMessage() {
     let typingDiv = document.createElement("div");
     typingDiv.className = "bot-msg";
     typingDiv.id = "typing";
-    typingDiv.innerHTML = `
+    typingDiv.textContent = `
     <div class="typing">
         <span></span>
         <span></span>
@@ -30,6 +31,7 @@ async function sendMessage() {
 
 
     chatArea.appendChild(typingDiv);
+    chatArea.scrollTop = chatArea.scrollHeight;
 
     // 3️⃣ call backend
     let response = await fetch("https://manojkumarpyapli-portfolio.onrender.com/chat?msg=" + message)
@@ -147,9 +149,19 @@ function addMessage(type, content) {
     div.innerHTML = content;
 
     chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
+
 
     chatArea.scrollTo({
         top: chatArea.scrollHeight,
         behavior: "smooth"
     });
+}
+
+
+if (data.intent) {
+    let intentDiv = document.createElement("div");
+    intentDiv.className = "intent-label";
+    intentDiv.textContent = "Intent detected: " + data.intent;
+    chatArea.appendChild(intentDiv);
 }

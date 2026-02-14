@@ -119,7 +119,12 @@ def get_response(tag):
     else:
         for intent in intents["intents"]:
             if intent["tag"] == tag:
-                return {"type": "text", "response": random.choice(intent["responses"])}
+                return {
+    "type": "text",
+    "response": random.choice(intent["responses"]),
+    "intent": tag
+}
+
 
 
 
