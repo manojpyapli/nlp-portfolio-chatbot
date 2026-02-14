@@ -3,6 +3,10 @@ import pickle
 import random
 import numpy as np
 import nltk
+
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('wordnet')
 from fastapi.middleware.cors import CORSMiddleware
 import info
 from fastapi.staticfiles import StaticFiles
