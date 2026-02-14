@@ -87,9 +87,8 @@ async function sendMessage() {
     chatArea.appendChild(typingDiv);
 
     // 3️⃣ call backend
-    let response = await fetch(
-        `http://127.0.0.1:8000/chat?msg=${message}`
-    );
+    let response = await fetch("https://manojkumarpyapli-portfolio.onrender.com/chat?msg=" + message)
+
 
     let data = await response.json();
 
