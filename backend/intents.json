@@ -1,0 +1,45 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey"],
+      "responses": ["Hello!", "Hi there!", "Hey!"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye"],
+      "responses": ["Goodbye!", "See you later!"]
+    },
+    {
+      "tag": "about",
+      "patterns": ["about", "about you", "tell me about yourself","name"],
+      "responses": ["about"]
+    },
+    {
+      "tag": "skills",
+      "patterns": ["skills", "your skills", "what do you know"],
+      "responses": ["skills"]
+    },
+    {
+      "tag": "projects",
+      "patterns": ["projects", "show projects"],
+      "responses": ["projects"]
+    },
+    {
+      "tag": "experience",
+      "patterns": ["experience", "work experience"],
+      "responses": ["experience"]
+    },
+    {
+      "tag": "contact",
+      "patterns": ["contact", "how to contact you"],
+      "responses": ["contact"]
+    },
+    {
+  "tag": "resume",
+  "patterns": ["resume", "download resume", "show resume"],
+  "responses": ["resume"]
+}
+
+  ]
+}
