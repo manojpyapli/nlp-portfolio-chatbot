@@ -1,5 +1,5 @@
 let chatHistory = [];
-addBotMessage("Waking up server...");
+
 
 async function sendMessage() {
 
@@ -9,6 +9,8 @@ async function sendMessage() {
 
     // 1️⃣ add user message
     addMessage("user", message);
+    document.getElementById("suggestions").style.display = "none";
+
 
     chatHistory.push({ type: "user", message: message });
     saveChat();
@@ -21,12 +23,12 @@ async function sendMessage() {
     let typingDiv = document.createElement("div");
     typingDiv.className = "bot-msg";
     typingDiv.id = "typing";
-    typingDiv.textContent = `
-    <div class="typing">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    typingDiv.innerHTML = `
+<div class="typing">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 `;
 
 
@@ -45,6 +47,14 @@ async function sendMessage() {
         typingDiv.remove();   // remove typing
 
         addMessage("bot", data.response);
+        if (data.intent) {
+    let intentDiv = document.createElement("div");
+    intentDiv.className = "intent-label";
+    intentDiv.textContent = "Intent detected: " + data.intent;
+
+    chatArea.appendChild(intentDiv);
+}
+
 
         chatHistory.push({
             type: "bot",
@@ -121,6 +131,8 @@ function clearChat() {
     let chatArea = document.getElementById("chat-area");
     chatArea.innerHTML = "";
 
+    document.getElementById("suggestions").style.display = "flex";
+
     // show welcome message again
     chatArea.innerHTML += `
         <div class="bot-msg">
@@ -159,9 +171,4 @@ function addMessage(type, content) {
 }
 
 
-if (data.intent) {
-    let intentDiv = document.createElement("div");
-    intentDiv.className = "intent-label";
-    intentDiv.textContent = "Intent detected: " + data.intent;
-    chatArea.appendChild(intentDiv);
-}
+
